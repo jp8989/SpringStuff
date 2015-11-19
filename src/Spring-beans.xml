@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- this will allow annotations now -->
+   	<context:annotation-config/>
+	<context:component-scan base-package="com.demo3.controller" />    
+   <!-- bean definitions go here -->
+
+	<bean id="aopService" class="com.demo3.controller.AOPService">
+		<property name="aop" value="Value of aop" />
+	</bean>
+	
+	<bean id="profilingMethodInterceptorBean" class="com.demo3.controller.ProfilingMethodInterceptor" />
+
+	<bean id="aopServiceProxy" 
+                 class="org.springframework.aop.framework.ProxyFactoryBean">
+
+		<property name="target" ref="aopService" />
+
+		<property name="interceptorNames">
+			<list>
+				<value>profilingMethodInterceptorBean</value>
+			</list>
+		</property>
+	</bean>	
+</beans>    
