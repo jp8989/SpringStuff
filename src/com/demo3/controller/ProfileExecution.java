@@ -11,6 +11,8 @@ import java.lang.annotation.Documented;
 @Target(ElementType.METHOD)
 @Inherited
 @Documented
+
+//what the hell is an annotated interface?
 public @interface ProfileExecution {
 
 }
