@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Spring MVC Tutorial by Crunchify - Hello World Spring MVC
+<title>Spring MVC Tutorial by Crunchify - Hello World Spring MVC JP
 	Example</title>
 <style type="text/css">
 body {
